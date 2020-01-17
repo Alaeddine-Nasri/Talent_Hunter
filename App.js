@@ -109,9 +109,10 @@ export default class Profile extends Component {
           {/* <Text style={styles.ccch}> Talent Hunter </Text> */}
         </View>
         <Image style={styles.avatar} source={require('./Ala.jpg')} />
+        {/* <Image style={styles.avatar} source={require('./star.svg')} /> */}
         <View style={styles.body}>
           <View style={styles.bodyContent}>
-            <Text style={styles.name}>Alaeddine</Text>
+            <Text style={styles.name}>Nasri Alaeddine</Text>
             <Text style={styles.info}>UX Designer / Mobile developer</Text>
 
             <View style={{ flex: 1, flexDirection: 'row', marginTop: 10 }}>
@@ -164,7 +165,10 @@ export default class Profile extends Component {
 
               <View style={styles.line}></View>
 
-              <Text style={styles.private}>Private Infos</Text>
+
+              <View style={{width :'80%'}}>
+              <Text style={styles.private}>Private Infos :</Text>
+              </View>
 
               <View style={{width :'80%' ,flexDirection : 'row' , justifyContent : 'space-between'}}>
                 <Text style={styles.title}>Email</Text>
@@ -204,9 +208,6 @@ export default class Profile extends Component {
 
           </View>
         </View>
-        <View style={styles.footer}>
-          <Text style={styles.ccc}> Nassim et3lm mn 3ala echikour xD</Text>
-        </View>
 
         {/* {this.state.fontloaded ? (
           <Text>wooooooooooooooooooows</Text>
@@ -224,11 +225,6 @@ const styles = StyleSheet.create({
     backgroundColor: "#FFFFFF",
     height: 200,
   },
-  footer: {
-    backgroundColor: "#6A0888",
-    height: 50,
-    marginTop: 20,
-  },
   avatar: {
     width: 130,
     height: 130,
@@ -238,14 +234,13 @@ const styles = StyleSheet.create({
     marginBottom: 10,
     alignSelf: 'center',
     position: 'absolute',
-    marginTop: 130
+    marginTop: 130,
+    marginBottom: 200,
   },
   name: {
     fontFamily : 'SFProText-Blod',
-    fontSize: 20,
+    fontSize: 22,
     color: "#000000",
-    // marginBottom : 5,
-    fontWeight: '600',
   },
   info: {
     fontFamily : 'SFProText-Regular',
@@ -321,7 +316,7 @@ const styles = StyleSheet.create({
     textAlign : "left",
     color: 'red',
     marginBottom : 10,
-    marginRight : 180,
+    textAlign : "left",
   },
   title: {
     fontFamily : 'SFProText-Blod',
@@ -339,47 +334,6 @@ const styles = StyleSheet.create({
     color: "#000",
     /*marginTop:-2000,*/
     textAlign: 'left'
-  },
-  buttonContainer: {
-    marginTop: 10,
-    height: 45,
-    flexDirection: 'row',
-    justifyContent: 'center',
-    alignItems: 'center',
-    marginBottom: 10,
-    width: 250,
-    borderRadius: 30,
-    backgroundColor: "#6A0888",
-  },
-  cc: {
-    color: '#FFFFFF'
-  },
-  ccc: {
-    color: '#FFFFFF',
-    marginTop: 10,
-    fontWeight: 'bold',
-    fontSize: 20,
-    textAlign: 'center'
-  },
-  ccch: {
-    color: '#000000',
-    marginTop: 60,
-    fontWeight: 'bold',
-    fontSize: 35,
-    marginLeft: -60,
-    textAlign: 'center'
-  },
-  blanc1: {
-    backgroundColor: "#FF4000",
-    position: 'absolute',
-    textAlign: 'center',
-    height: 800,
-    flex: 1,
-    flexDirection: 'column',
-    justifyContent: 'center',
-    alignItems: 'stretch',
-    width: '80%',
-    marginTop: 400,
   },
   line: {
     backgroundColor: "#ECECEC",
