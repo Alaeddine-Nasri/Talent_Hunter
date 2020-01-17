@@ -95,7 +95,7 @@ export default class Profile extends Component {
            'SFProText-Regular': require('./assets/fonts/FontsFree-Net-SFProText-Regular.ttf'),
            'SFProText-Semibold': require('./assets/fonts/FontsFree-Net-SFProText-Semibold.ttf')
            });
-           //this.setState ({fontloaded : true});
+           this.setState ({fontloaded : true});
      }
   render() {
    
@@ -105,8 +105,8 @@ export default class Profile extends Component {
     //const [dataLoaded, SetDataLoaded] = useState(false);
     return (
       <ScrollView style={styles.container}>
-        {/* <View style={styles.header}>
-          <Text style={styles.ccch}> Talent Hunter </Text>
+         <View style={styles.header}>
+          {/* <Text style={styles.ccch}> Talent Hunter </Text> */}
         </View>
         <Image style={styles.avatar} source={require('./Ala.jpg')} />
         <View style={styles.body}>
@@ -118,7 +118,7 @@ export default class Profile extends Component {
 
               <View style={styles.smallcard}>
                 <Text style={styles.textcard}>Experience</Text>
-                <Text style={styles.textcardblod}>201</Text>
+                <Text style={styles.textcardblod}>202</Text>
               </View>
 
               <View style={styles.smallcard}>
@@ -143,7 +143,9 @@ export default class Profile extends Component {
 
               <View style={{width :'80%'}}>
                 <Text style={styles.title}>Notes</Text>
-                <Text style={styles.description}>Lorem ipsum dolor sit amet, saepe sapientem eu nam. Qui ne assum electram expetendis, omittam deseruisse consequuntur ius an,</Text>
+                <Text style={styles.description}>Lorem ipsum dolor sit amet, saepe spa sapientem eu nam. Qui ne assum electram expetendis, omittam deseruisse consequuntur ius an,</Text>
+                <Text style={styles.description}>Plusieurs variations de Lorem Ipsum peuvent être trouvéesais la majeure partie d'entre elles a été altérée par l'addition.</Text>
+              
               </View>
 
               <View style={styles.line}></View>
@@ -162,7 +164,7 @@ export default class Profile extends Component {
 
               <View style={styles.line}></View>
 
-              <Text>Private Infos</Text>
+              <Text style={styles.private}>Private Infos</Text>
 
               <View style={{width :'80%' ,flexDirection : 'row' , justifyContent : 'space-between'}}>
                 <Text style={styles.title}>Email</Text>
@@ -197,8 +199,6 @@ export default class Profile extends Component {
                 <Text style={styles.main}>ALANASRI.docs</Text>
               </View>
 
-              <View style={styles.line}></View>
-
             </View>
             
 
@@ -206,14 +206,14 @@ export default class Profile extends Component {
         </View>
         <View style={styles.footer}>
           <Text style={styles.ccc}> Nassim et3lm mn 3ala echikour xD</Text>
-        </View>*/}
+        </View>
 
-        {this.state.fontloaded ? (
-          <Text>wooooooooooooooooooooooooows</Text>
+        {/* {this.state.fontloaded ? (
+          <Text>wooooooooooooooooooows</Text>
         ) : (
           <ActivityIndicator size="large"/>
         )
-        }
+        } */}
       </ScrollView>
     );
   }
@@ -241,9 +241,18 @@ const styles = StyleSheet.create({
     marginTop: 130
   },
   name: {
-    fontSize: 22,
-    color: "#FFFFFF",
+    fontFamily : 'SFProText-Blod',
+    fontSize: 20,
+    color: "#000000",
+    // marginBottom : 5,
     fontWeight: '600',
+  },
+  info: {
+    fontFamily : 'SFProText-Regular',
+    fontSize: 15,
+    color: "#000000",
+    marginTop : 5,
+    marginBottom : 20,
   },
   body: {
     marginTop: 40,
@@ -275,6 +284,20 @@ const styles = StyleSheet.create({
     shadowRadius: 3,
     elevation: 20
   },
+  textcard: {
+    fontFamily : 'SFProText-Regular',
+    color: '#000',
+    fontSize: 14,
+    textAlign: 'center'
+  },
+  textcardblod: {
+    color: '#000',
+    fontWeight: 'bold',
+    /*marginTop : 10,
+    fontWeight: 'bold',*/
+    fontSize: 17,
+    textAlign: 'center'
+  },
   bigcard: {
     flex: 1,
     backgroundColor: '#FFFFFF',
@@ -294,18 +317,14 @@ const styles = StyleSheet.create({
     shadowRadius: 3,
     elevation: 20
   },
-  name: {
-    fontSize: 28,
-    color: "#696969",
-    fontWeight: "600"
-  },
-  info: {
-    fontSize: 16,
-    color: "#6A0888",
-    marginTop: 10
+  private:{
+    textAlign : "left",
+    color: 'red',
+    marginBottom : 10,
+    marginRight : 180,
   },
   title: {
-    //fontFamily : 'SFProText-Blod',
+    fontFamily : 'SFProText-Blod',
     fontWeight : 'bold',
     textAlign: 'left',
     fontSize : 16,
@@ -319,7 +338,7 @@ const styles = StyleSheet.create({
     fontSize: 14,
     color: "#000",
     /*marginTop:-2000,*/
-    textAlign: 'center'
+    textAlign: 'left'
   },
   buttonContainer: {
     marginTop: 10,
@@ -362,24 +381,9 @@ const styles = StyleSheet.create({
     width: '80%',
     marginTop: 400,
   },
-  textcard: {
-    color: '#000',
-    /*marginTop : 10,
-    fontWeight: 'bold',*/
-    fontSize: 14,
-    textAlign: 'center'
-  },
-  textcardblod: {
-    color: '#000',
-    fontWeight: 'bold',
-    /*marginTop : 10,
-    fontWeight: 'bold',*/
-    fontSize: 17,
-    textAlign: 'center'
-  },
   line: {
     backgroundColor: "#ECECEC",
-    width: 280,
+    width: '80%',
     height: 2,
     marginTop: 20,
     marginBottom : 20,
