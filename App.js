@@ -64,19 +64,48 @@ import {
   Text,
   View,
   Image,
+  ActivityIndicator,
   TouchableOpacity,
-  ScrollView
+  ScrollView,
+  ActivityIndicatorBase
 } from 'react-native';
 import { Button } from 'react-native-elements';
 import Icon from 'react-native-vector-icons/FontAwesome';
+ import * as Font from 'expo-font';
+//import { Font } from 'expo';
+// const fetchFonts = () => {
+//   return Font.loadAsync({
+//   'SFProText-Blod': require('./assets/fonts/FontsFree-Net-SFProText-Bold.ttf'),
+//   'SFProText-Regular': require('./assets/fonts/FontsFree-Net-SFProText-Regular.ttf'),
+//   'SFProText-Semibold': require('./assets/fonts/FontsFree-Net-SFProText-Semibold.ttf')
+//   });
+//   };
 
 
 export default class Profile extends Component {
-
+    constructor(){
+      super();
+      this.state = {
+        fontloaded : false,
+      }
+    }
+    async componentDidMount(){
+      await Font.loadAsync({
+           'SFProText-Blod': require('./assets/fonts/FontsFree-Net-SFProText-Bold.ttf'),
+           'SFProText-Regular': require('./assets/fonts/FontsFree-Net-SFProText-Regular.ttf'),
+           'SFProText-Semibold': require('./assets/fonts/FontsFree-Net-SFProText-Semibold.ttf')
+           });
+           //this.setState ({fontloaded : true});
+     }
   render() {
+   
+      
+    
+    
+    //const [dataLoaded, SetDataLoaded] = useState(false);
     return (
       <ScrollView style={styles.container}>
-        <View style={styles.header}>
+        {/* <View style={styles.header}>
           <Text style={styles.ccch}> Talent Hunter </Text>
         </View>
         <Image style={styles.avatar} source={require('./Ala.jpg')} />
@@ -89,17 +118,17 @@ export default class Profile extends Component {
 
               <View style={styles.smallcard}>
                 <Text style={styles.textcard}>Experience</Text>
-                <Text style={styles.textcard}>201</Text>
+                <Text style={styles.textcardblod}>201</Text>
               </View>
 
               <View style={styles.smallcard}>
                 <Text style={styles.textcard}>Age</Text>
-                <Text style={styles.textcard}>19</Text>
+                <Text style={styles.textcardblod}>19</Text>
               </View>
 
               <View style={styles.smallcard}>
                 <Text style={styles.textcard}>Projects</Text>
-                <Text style={styles.textcard}>33</Text>
+                <Text style={styles.textcardblod}>33</Text>
               </View>
 
             </View>
@@ -109,18 +138,86 @@ export default class Profile extends Component {
                 <Text style={styles.title}>Job</Text>
                 <Text style={styles.main}>Etudtiant</Text>
               </View>
+
               <View style={styles.line}></View>
+
+              <View style={{width :'80%'}}>
+                <Text style={styles.title}>Notes</Text>
+                <Text style={styles.description}>Lorem ipsum dolor sit amet, saepe sapientem eu nam. Qui ne assum electram expetendis, omittam deseruisse consequuntur ius an,</Text>
+              </View>
+
+              <View style={styles.line}></View>
+
+              <View style={{width :'80%' ,flexDirection : 'row' , justifyContent : 'space-between'}}>
+                <Text style={styles.title}>Location</Text>
+                <Text style={styles.main}>Bouraoui Campus</Text>
+              </View>
+
+              <View style={styles.line}></View>
+
+              <View style={{width :'80%' ,flexDirection : 'row' , justifyContent : 'space-between'}}>
+                <Text style={styles.title}>Languages</Text>
+                <Text style={styles.main}>Arabic,French,English</Text>
+              </View>
+
+              <View style={styles.line}></View>
+
+              <Text>Private Infos</Text>
+
+              <View style={{width :'80%' ,flexDirection : 'row' , justifyContent : 'space-between'}}>
+                <Text style={styles.title}>Email</Text>
+                <Text style={styles.main}>ia_nasri@esi.dz</Text>
+              </View>
+
+              <View style={styles.line}></View>
+
+              <View style={{width :'80%' ,flexDirection : 'row' , justifyContent : 'space-between'}}>
+                <Text style={styles.title}>Phone</Text>
+                <Text style={styles.main}>+213698367901</Text>
+              </View>
+
+              <View style={styles.line}></View>
+
+              <View style={{width :'80%' ,flexDirection : 'row' , justifyContent : 'space-between'}}>
+                <Text style={styles.title}>Portfolio</Text>
+                <Text style={styles.main}>linkto.website</Text>
+              </View>
+
+              <View style={styles.line}></View>
+
+              <View style={{width :'80%' ,flexDirection : 'row' , justifyContent : 'space-between'}}>
+                <Text style={styles.title}>Facebook</Text>
+                <Text style={styles.main}>linkto.facebook</Text>
+              </View>
+
+              <View style={styles.line}></View>
+
+              <View style={{width :'80%' ,flexDirection : 'row' , justifyContent : 'space-between'}}>
+                <Text style={styles.title}>curriculum vitae</Text>
+                <Text style={styles.main}>ALANASRI.docs</Text>
+              </View>
+
+              <View style={styles.line}></View>
+
             </View>
+            
 
           </View>
         </View>
         <View style={styles.footer}>
           <Text style={styles.ccc}> Nassim et3lm mn 3ala echikour xD</Text>
-        </View>
+        </View>*/}
+
+        {this.state.fontloaded ? (
+          <Text>wooooooooooooooooooooooooows</Text>
+        ) : (
+          <ActivityIndicator size="large"/>
+        )
+        }
       </ScrollView>
     );
   }
-}
+} 
 
 const styles = StyleSheet.create({
   header: {
@@ -164,15 +261,13 @@ const styles = StyleSheet.create({
     backgroundColor: '#FFFFFF',
     justifyContent: 'center',
     alignItems: 'center',
-    /* position : 'absolute',*/
-    width: 100,
-    height: 80,
+    width: 86,
+    height: 58,
     marginLeft: 10,
-    //Below lines will help to set the border radius
-    borderBottomLeftRadius: 10,
-    borderBottomRightRadius: 10,
-    borderTopRightRadius: 10,
-    borderTopLeftRadius: 10,
+    borderBottomLeftRadius: 8,
+    borderBottomRightRadius: 8,
+    borderTopRightRadius: 8,
+    borderTopLeftRadius: 8,
     shadowOffset: { width: 10, height: 10, },
     overflow: 'hidden',
     shadowColor: '#000',
@@ -183,16 +278,14 @@ const styles = StyleSheet.create({
   bigcard: {
     flex: 1,
     backgroundColor: '#FFFFFF',
-    /*justifyContent: 'center',*/
     alignItems: 'center',
-    width: 300,
-    height: 800,
-    //Below lines will help to set the border radius
-    marginTop: 20,
-    borderBottomLeftRadius: 30,
-    borderBottomRightRadius: 30,
-    borderTopRightRadius: 30,
-    borderTopLeftRadius: 30,
+    width: 308,
+    height: 695,
+    marginTop: 57,
+    borderBottomLeftRadius: 35,
+    borderBottomRightRadius: 35,
+    borderTopRightRadius: 35,
+    borderTopLeftRadius: 35,
     shadowOffset: { width: 10, height: 10, },
     overflow: 'hidden',
     shadowColor: '#000',
@@ -212,18 +305,20 @@ const styles = StyleSheet.create({
     marginTop: 10
   },
   title: {
+    //fontFamily : 'SFProText-Blod',
+    fontWeight : 'bold',
     textAlign: 'left',
+    fontSize : 16,
     /*marginLeft : 20,*/
   },
   main: {
     textAlign: 'right',
+    fontSize : 14,
   },
   description: {
-    fontSize: 16,
+    fontSize: 14,
     color: "#000",
     /*marginTop:-2000,*/
-    marginLeft: 10,
-    marginRight: 10,
     textAlign: 'center'
   },
   buttonContainer: {
@@ -271,15 +366,23 @@ const styles = StyleSheet.create({
     color: '#000',
     /*marginTop : 10,
     fontWeight: 'bold',*/
-    fontSize: 20,
+    fontSize: 14,
+    textAlign: 'center'
+  },
+  textcardblod: {
+    color: '#000',
+    fontWeight: 'bold',
+    /*marginTop : 10,
+    fontWeight: 'bold',*/
+    fontSize: 17,
     textAlign: 'center'
   },
   line: {
-    backgroundColor: "#000",
+    backgroundColor: "#ECECEC",
     width: 280,
     height: 2,
-    opacity: .1,
-    marginTop: 10,
+    marginTop: 20,
+    marginBottom : 20,
   }
 });
 
