@@ -91,7 +91,7 @@ export default class Profile extends Component {
     }
     async componentDidMount(){
       await Font.loadAsync({
-           'SFProText-Blod': require('./assets/fonts/FontsFree-Net-SFProText-Bold.ttf'),
+           'SFProText-Bold': require('./assets/fonts/FontsFree-Net-SFProText-Bold.ttf'),
            'SFProText-Regular': require('./assets/fonts/FontsFree-Net-SFProText-Regular.ttf'),
            'SFProText-Semibold': require('./assets/fonts/FontsFree-Net-SFProText-Semibold.ttf')
            });
@@ -109,7 +109,9 @@ export default class Profile extends Component {
           {/* <Text style={styles.ccch}> Talent Hunter </Text> */}
         </View>
         <Image style={styles.avatar} source={require('./Ala.jpg')} />
-        {/* <Image style={styles.avatar} source={require('./star.svg')} /> */}
+        <View style={styles.star}>
+        <Image style={styles.stars} source={require('./star.png')} />
+        </View>
         <View style={styles.body}>
           <View style={styles.bodyContent}>
             <Text style={styles.name}>Nasri Alaeddine</Text>
@@ -133,7 +135,7 @@ export default class Profile extends Component {
               </View>
 
             </View>
-
+            <View style={{width: '100%', flex: 1, flexDirection: 'row' }}>
             <View style={styles.bigcard}>
               <View style={{width :'80%' ,flexDirection : 'row' , justifyContent : 'space-between'}}>
                 <Text style={styles.title}>Job</Text>
@@ -204,7 +206,7 @@ export default class Profile extends Component {
               </View>
 
             </View>
-            
+            </View> 
 
           </View>
         </View>
@@ -235,10 +237,22 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
     position: 'absolute',
     marginTop: 130,
-    marginBottom: 200,
+  //  marginBottom: 200,
+  },
+  star: {
+    width: '82%',
+    alignSelf: 'center',
+    position: 'absolute',
+  },
+  stars: {
+    width: 24,
+    height: 24,
+    alignSelf: 'flex-end',
+    position: 'absolute',
+    marginTop: 140,
   },
   name: {
-    fontFamily : 'SFProText-Blod',
+    fontFamily : 'SFProText-Bold',
     fontSize: 22,
     color: "#000000",
   },
@@ -265,7 +279,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#FFFFFF',
     justifyContent: 'center',
     alignItems: 'center',
-    width: 86,
+    width: '20%',
     height: 58,
     marginLeft: 10,
     borderBottomLeftRadius: 8,
@@ -297,7 +311,7 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#FFFFFF',
     alignItems: 'center',
-    width: 308,
+    width: '90%',
     height: 695,
     marginTop: 57,
     borderBottomLeftRadius: 35,
@@ -319,7 +333,7 @@ const styles = StyleSheet.create({
     textAlign : "left",
   },
   title: {
-    fontFamily : 'SFProText-Blod',
+    fontFamily : 'SFProText-Bold',
     fontWeight : 'bold',
     textAlign: 'left',
     fontSize : 16,
