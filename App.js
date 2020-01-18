@@ -1,26 +1,4 @@
-/*import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
-
-export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-    </View>
-  );
-}
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
-
-//appp t3na 
-
-
+/*
 
 <Text style={styles.info}>UX Designer / Mobile developer</Text>
 <Text style={styles.description}>Lorem ipsum dolor sit amet, saepe sapientem eu nam. Qui ne assum electram expetendis, omittam deseruisse consequuntur ius an,</Text>
@@ -64,6 +42,8 @@ import {
   Text,
   View,
   Image,
+  Animated,
+  TouchableWithoutFeedback,
   ActivityIndicator,
   TouchableOpacity,
   ScrollView,
@@ -81,7 +61,6 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 //   });
 //   };
 
-
 export default class Profile extends Component {
     constructor(){
       super();
@@ -97,9 +76,8 @@ export default class Profile extends Component {
            });
            this.setState ({fontloaded : true});
      }
-  render() {
+   render() {
    
-      
     
     
     //const [dataLoaded, SetDataLoaded] = useState(false);
@@ -210,13 +188,6 @@ export default class Profile extends Component {
 
           </View>
         </View>
-
-        {/* {this.state.fontloaded ? (
-          <Text>wooooooooooooooooooows</Text>
-        ) : (
-          <ActivityIndicator size="large"/>
-        )
-        } */}
       </ScrollView>
     );
   }
