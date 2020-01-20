@@ -47,9 +47,11 @@ import {
   ActivityIndicator,
   TouchableOpacity,
   ScrollView,
-  ActivityIndicatorBase
+  ActivityIndicatorBase,
+  Button, 
+  Platform
 } from 'react-native';
-import { Button } from 'react-native-elements';
+//import { Button } from 'react-native-elements';
 import Icon from 'react-native-vector-icons/FontAwesome';
  import * as Font from 'expo-font';
 //import { Font } from 'expo';
@@ -66,7 +68,19 @@ export default class Profile extends Component {
       super();
       this.state = {
         fontloaded : false,
+        image : './star.png',
+        age : 10,
       }
+    }
+
+    Load_New_Image=()=>{
+    
+      this.setState({
+    
+        image : './star3.png'
+
+    
+      })
     }
     async componentDidMount(){
       await Font.loadAsync({
@@ -75,26 +89,51 @@ export default class Profile extends Component {
            'SFProText-Semibold': require('./assets/fonts/FontsFree-Net-SFProText-Semibold.ttf')
            });
            this.setState ({fontloaded : true});
+
      }
+     
    render() {
    
     
     
     //const [dataLoaded, SetDataLoaded] = useState(false);
     return (
+
+      
+ 
+            
+                
+ 
       <ScrollView style={styles.container}>
          <View style={styles.header}>
           {/* <Text style={styles.ccch}> Talent Hunter </Text> */}
         </View>
         <Image style={styles.avatar} source={require('./Ala.jpg')} />
         <View style={styles.star}>
-        <Image style={styles.stars} source={require('./star.png')} />
-        </View>
+          
+         <Image style={styles.stars} source={if.(fontloaded) {require('./star.png')} else require('./star.png')} /> 
+         {/* <View style={styles.starss}>    
+        <Button title="" onPress={this.Load_New_Image} />
+        </View> */}
+        {/*
+            (age > 10?)(
+              alert("ok"),
+              <Image style={styles.avatar} source={require('./Ala.jpg')} />
+
+            ): (
+              alert("sorry bro ! u r too young")
+            )
+            */}
+         <Image 
+              source ={require('./star.png')}
+              
+              style = {styles.stars} /> 
+        </View> 
         <View style={styles.body}>
           <View style={styles.bodyContent}>
             <Text style={styles.name}>Nasri Alaeddine</Text>
             <Text style={styles.info}>UX Designer / Mobile developer</Text>
-
+            
             <View style={{ flex: 1, flexDirection: 'row', marginTop: 10 }}>
 
               <View style={styles.smallcard}>
@@ -198,6 +237,14 @@ const styles = StyleSheet.create({
     backgroundColor: "#FFFFFF",
     height: 200,
   },
+  imageStyle:{
+ 
+    width: 200, 
+    height: 300, 
+    resizeMode: 'center'
+ 
+   },
+   
   avatar: {
     width: 130,
     height: 130,
@@ -222,8 +269,16 @@ const styles = StyleSheet.create({
     position: 'absolute',
     marginTop: 140,
   },
+  starss: {
+    width: 24,
+    height: 24,
+    alignSelf: 'flex-end',
+    position: 'absolute',
+    marginTop: 150,
+    opacity :0.1,
+  },
   name: {
-    fontFamily : 'SFProText-Bold',
+ //   fontFamily : 'SFProText-Bold',
     fontSize: 22,
     color: "#000000",
   },
