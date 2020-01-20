@@ -69,7 +69,7 @@ export default class Profile extends Component {
       this.state = {
         fontloaded : false,
         image : './star.png',
-        age : 10,
+        starbool : false,
       }
     }
 
@@ -110,11 +110,11 @@ export default class Profile extends Component {
         </View>
         <Image style={styles.avatar} source={require('./Ala.jpg')} />
         <View style={styles.star}>
-          
-         <Image style={styles.stars} source={if.(fontloaded) {require('./star.png')} else require('./star.png')} /> 
+          {  this.state.starbool == flase? <Text>data</Text>: null  }
          {/* <View style={styles.starss}>    
         <Button title="" onPress={this.Load_New_Image} />
         </View> */}
+        
         {/*
             (age > 10?)(
               alert("ok"),
