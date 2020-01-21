@@ -64,15 +64,27 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 //   };
 
 export default class Profile extends Component {
-    constructor(){
-      super();
+    constructor(props){
+      super(props);
+      this.handleLoginClick = this.handleLoginClick.bind(this);
+      this.handleLogoutClick = this.handleLogoutClick.bind(this);
       this.state = {
         fontloaded : false,
         image : './star.png',
         starbool : false,
+        isLoggedIn: false,
       }
     }
 
+    handleLoginClick = () => {
+      console.log("Test true")
+      this.setState({starbool: true});
+    }
+  
+    handleLogoutClick = () => {
+      console.log("Test false ")
+      this.setState({starbool: false});
+    }
     Load_New_Image=()=>{
     
       this.setState({
@@ -92,38 +104,34 @@ export default class Profile extends Component {
 
      }
      
-   render() {
-   
-    
+   render() {   
+    const starbool = this.state.starbool;
+    let button; 
+     if (this.state.starbool){
+       button = <Button title="wow" onClick={this.handleLogoutClick} />;
+     } else {
+       button = <Button title="wowssssssssssssssssssssss" onClick={this.handleLoginClick} />;
+     }
     
     //const [dataLoaded, SetDataLoaded] = useState(false);
     return (
 
-      
- 
-            
-                
- 
       <ScrollView style={styles.container}>
          <View style={styles.header}>
           {/* <Text style={styles.ccch}> Talent Hunter </Text> */}
         </View>
         <Image style={styles.avatar} source={require('./Ala.jpg')} />
+        <View>
+        <View>
+        {/* {button} */}
+        {(this.state.satrbool) ? (<Button title="s" onClick={() => this.handleLogoutClick()} />) 
+         : <Button title="wowssqlm" onClick={() => this.handleLoginClick()} />}
+ 
+        </View>
+        </View>
         <View style={styles.star}>
-          {  this.state.starbool == flase? <Text>data</Text>: null  }
-         {/* <View style={styles.starss}>    
-        <Button title="" onPress={this.Load_New_Image} />
-        </View> */}
-        
-        {/*
-            (age > 10?)(
-              alert("ok"),
-              <Image style={styles.avatar} source={require('./Ala.jpg')} />
-
-            ): (
-              alert("sorry bro ! u r too young")
-            )
-            */}
+          {/* {  this.state.starbool == flase? <Text>data</Text>: null  }*/}
+      
          <Image 
               source ={require('./star.png')}
               
@@ -278,7 +286,7 @@ const styles = StyleSheet.create({
     opacity :0.1,
   },
   name: {
- //   fontFamily : 'SFProText-Bold',
+    fontFamily : 'SFProText-Bold',
     fontSize: 22,
     color: "#000000",
   },
