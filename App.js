@@ -50,7 +50,8 @@ import {
   ActivityIndicatorBase,
   Button, 
   Platform,
-  activateLasers
+  activateLasers,
+  TouchableHighlight,
 } from 'react-native';
 //import { Button } from 'react-native-elements';
 import Icon from 'react-native-vector-icons/FontAwesome';
@@ -126,31 +127,31 @@ export default class Profile extends Component {
           {/* <Text style={styles.ccch}> Talent Hunter </Text> */}
         </View>
         <Image style={styles.avatar} source={require('./Ala.jpg')} />
-        <Button
-          onPress={this.buttonClickListener}
-          title="Click ME"
-         
-          />
-        <View  style={styles.star}>
+        <View>
         {/* {button} */}
         {/* {(this.state.satrbool) ? (<Button title="s" onClick={ handleLogoutClick} />
         ) 
          : <Button title="wowssqlm" onClick={ this.handleLoginClick} />}
         */}
-         
+        <Button
+          onPress={this.buttonClickListener}
+          title="Click ME"
+          color="#00B0FF"   
+          /> 
           {
-            (this.state.starbool)? (
+            (this.state.starbool)? (<TouchableHighlight  style={styles.star} onPress={this.buttonClickListener}>
               <Image 
                    source ={require('./star3.png')}
                    
                    style = {styles.stars} /> 
-              )
+             </TouchableHighlight> )
             :
+            <TouchableHighlight style={styles.star} onPress={this.buttonClickListener}>
             <Image 
               source ={require('./star.png')}
               
               style = {styles.stars} /> 
-            
+            </TouchableHighlight> 
           }
 
         
