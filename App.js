@@ -49,7 +49,8 @@ import {
   ScrollView,
   ActivityIndicatorBase,
   Button, 
-  Platform
+  Platform,
+  activateLasers
 } from 'react-native';
 //import { Button } from 'react-native-elements';
 import Icon from 'react-native-vector-icons/FontAwesome';
@@ -66,25 +67,24 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 export default class Profile extends Component {
     constructor(props){
       super(props);
-      this.handleLoginClick = this.handleLoginClick.bind(this);
-      this.handleLogoutClick = this.handleLogoutClick.bind(this);
+    //  this.handleLoginClick = this.handleLoginClick.bind(this);
+     // this.handleLogoutClick = this.handleLogoutClick.bind(this);
       this.state = {
         fontloaded : false,
         image : './star.png',
         starbool : false,
-        isLoggedIn: false,
       }
     }
 
-    handleLoginClick = () => {
-      console.log("Test true")
-      this.setState({starbool: true});
-    }
+    // handleLoginClick()  {
+    //   console.log("Test true")
+    //   this.setState({starbool: true});
+    // }
   
-    handleLogoutClick = () => {
-      console.log("Test false ")
-      this.setState({starbool: false});
-    }
+    // handleLogoutClick() {
+    //   console.log("Test false ")
+    //   this.setState({starbool: false});
+    // }
     Load_New_Image=()=>{
     
       this.setState({
@@ -94,6 +94,10 @@ export default class Profile extends Component {
     
       })
     }
+    buttonClickListener = () =>{
+      this.setState({starbool : !this.state.starbool})
+     // alert("True !!!");
+    }
     async componentDidMount(){
       await Font.loadAsync({
            'SFProText-Bold': require('./assets/fonts/FontsFree-Net-SFProText-Bold.ttf'),
@@ -101,17 +105,18 @@ export default class Profile extends Component {
            'SFProText-Semibold': require('./assets/fonts/FontsFree-Net-SFProText-Semibold.ttf')
            });
            this.setState ({fontloaded : true});
+        //   console.log("Component did mount ")
 
      }
      
    render() {   
-    const starbool = this.state.starbool;
-    let button; 
-     if (this.state.starbool){
-       button = <Button title="wow" onClick={this.handleLogoutClick} />;
-     } else {
-       button = <Button title="wowssssssssssssssssssssss" onClick={this.handleLoginClick} />;
-     }
+    // const starbool = this.state.starbool;
+    // let button; 
+    //  if (this.state.starbool){
+    //    button = <Button title="wow" onClick={this.handleLogoutClick} />;
+    //  } else {
+    //    button = <Button title="wowssssssssssssssssssssss" onClick={this.handleLoginClick} />;
+    //  }
     
     //const [dataLoaded, SetDataLoaded] = useState(false);
     return (
@@ -121,22 +126,36 @@ export default class Profile extends Component {
           {/* <Text style={styles.ccch}> Talent Hunter </Text> */}
         </View>
         <Image style={styles.avatar} source={require('./Ala.jpg')} />
-        <View>
-        <View>
+        <Button
+          onPress={this.buttonClickListener}
+          title="Click ME"
+          color="#00B0FF"   
+          />
+        <View  style={styles.star}>
         {/* {button} */}
-        {(this.state.satrbool) ? (<Button title="s" onClick={() => this.handleLogoutClick()} />) 
-         : <Button title="wowssqlm" onClick={() => this.handleLoginClick()} />}
- 
-        </View>
-        </View>
-        <View style={styles.star}>
-          {/* {  this.state.starbool == flase? <Text>data</Text>: null  }*/}
-      
-         <Image 
+        {/* {(this.state.satrbool) ? (<Button title="s" onClick={ handleLogoutClick} />
+        ) 
+         : <Button title="wowssqlm" onClick={ this.handleLoginClick} />}
+        */}
+         
+          {
+            (this.state.starbool)? (
+              <Image 
+                   source ={require('./star3.png')}
+                   
+                   style = {styles.stars} /> 
+              )
+            :
+            <Image 
               source ={require('./star.png')}
               
               style = {styles.stars} /> 
-        </View> 
+            
+          }
+
+        
+        </View>
+        
         <View style={styles.body}>
           <View style={styles.bodyContent}>
             <Text style={styles.name}>Nasri Alaeddine</Text>
