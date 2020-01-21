@@ -129,7 +129,7 @@ export default class Profile extends Component {
         <Button
           onPress={this.buttonClickListener}
           title="Click ME"
-          color="#00B0FF"   
+         
           />
         <View  style={styles.star}>
         {/* {button} */}
