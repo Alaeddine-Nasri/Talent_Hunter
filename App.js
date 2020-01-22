@@ -127,35 +127,35 @@ export default class Profile extends Component {
           {/* <Text style={styles.ccch}> Talent Hunter </Text> */}
         </View>
         <Image style={styles.avatar} source={require('./Ala.jpg')} />
-        <Button
+        {/* <Button
           onPress={this.buttonClickListener}
           title="Click ME"
           color="#00B0FF"   
-          /> 
-        <View style={styles.star} onPress={this.buttonClickListener}>
-        
-        {/* {button} */}
-        {/* {(this.state.satrbool) ? (<Button title="s" onClick={ handleLogoutClick} />
-        ) 
-         : <Button title="wowssqlm" onClick={ this.handleLoginClick} />}
-        */}
-        
-          {
-            (this.state.starbool)? (
-              <Image 
-                   source ={require('./star3.png')}
-                   
-                   style = {styles.stars} /> 
-             )
-            :
-            
-            <Image 
-              source ={require('./star.png')}
+          />  */}
+        <View style={styles.star} >
+          <TouchableOpacity onPress={this.buttonClickListener} style={{width: 24,
+            height: 24,
+            alignSelf: 'flex-end',
+            position: 'absolute',
+            marginTop: 140,
+      //      opacity : 0,
+            }}>    
+            {
+              (this.state.starbool)? (
+                <Image 
+                    source ={require('./star3.png')}
+                    
+                    style = {styles.stars} /> 
+              )
+              :
               
-              style = {styles.stars} /> 
-            
-          }
-
+              <Image 
+                source ={require('./star.png')}
+                
+                style = {styles.stars} /> 
+              
+            }
+        </TouchableOpacity>
         
         </View>
         
@@ -297,7 +297,7 @@ const styles = StyleSheet.create({
     height: 24,
     alignSelf: 'flex-end',
     position: 'absolute',
-    marginTop: 140,
+    //marginTop: 140,
   },
   starss: {
     width: 24,
